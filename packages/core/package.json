@@ -1,0 +1,29 @@
+{
+  "name": "@action-builder/core",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "main": "src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "node": "./dist/esm/index.js",
+      "default": "./dist/cjs/index.js"
+    }
+  },
+  "publishConfig": {
+    "main": "dist/cjs/index.js"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "pnpm clean && pnpm build:cjs && pnpm build:esm",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:watch": "pnpm clean && run-p \"build:cjs -w\" \"build:esm -w\""
+  },
+  "devDependencies": {
+    "@action-builder/types": "workspace:*"
+  }
+}

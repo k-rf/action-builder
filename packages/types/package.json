@@ -1,0 +1,11 @@
+{
+  "name": "@action-builder/types",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "pnpm clean && tsc"
+  }
+}

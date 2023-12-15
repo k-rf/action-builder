@@ -2,14 +2,25 @@
   "name": "@k-rf/action-builder",
   "version": "0.1.0",
   "license": "MIT",
+  "bin": {
+    "ab": "./packages/cli/dist/index.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./packages/core/dist/types/index.d.ts",
+      "import": "./packages/core/dist/esm/index.js",
+      "require": "./packages/core/dist/cjs/index.js",
+      "node": "./packages/core/dist/esm/index.js",
+      "default": "./packages/core/dist/cjs/index.js"
+    }
+  },
   "scripts": {
     "prepare": "husky install",
-    "build": "pnpm build:action",
-    "build:all": "npm-run-all -s build:ab build:action",
-    "build:ab": "pnpm -C ./packages/common/action-builder build",
-    "build:action": "pnpm --filter './packages/actions/**' build",
+    "build": "npm-run-all -s build:core build:cli",
+    "build:core": "pnpm -C ./packages/core build",
+    "build:cli": "pnpm -C ./packages/cli build",
     "check:lint": "eslint --fix --cache .",
-    "check:format": "prettier . --write",
+    "check:format": "prettier --write .",
     "check:type": "tsc --project tsconfig.json --pretty --noEmit",
     "check:all": "npm-run-all -s check:type check:format check:lint",
     "test": "jest --runInBand",

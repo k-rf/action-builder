@@ -1,0 +1,21 @@
+{
+  "name": "@action-builder/cli",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "main": "src/index.ts",
+  "publishConfig": {
+    "main": "dist/index.js"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "pnpm clean && tsc -p tsconfig.json",
+    "build:watch": "pnpm clean && pnpm build -w"
+  },
+  "dependencies": {
+    "@action-builder/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@action-builder/types": "workspace:*"
+  }
+}
