@@ -1,0 +1,29 @@
+name: "Lint and Test"
+
+on: push
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.*
+
+      - name: "Install"
+        id: install
+        run: pnpm install
+
+      - name: "Check Type"
+        id: check_type
+        run: pnpm check:type
+
+      - name: "Lint"
+        id: lint
+        run: pnpm lint
+
+      - name: "Test"
+        id: test
+        run: pnpm test:cov
