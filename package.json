@@ -28,7 +28,8 @@
     "test": "jest --runInBand",
     "test:cov": "jest --runInBand --coverage=true",
     "test:watch": "jest --runInBand --watch",
-    "scaffold": "scaffdog generate && pnpm install && pnpm check:format"
+    "core": "pnpm -C ./packages/core",
+    "cli": "pnpm -C ./packages/cli"
   },
   "engines": {
     "npm": "Please use the pnpm.",
@@ -36,6 +37,7 @@
   },
   "dependencies": {
     "@actions/core": "^1.10.1",
+    "fp-ts": "^2.16.1",
     "remeda": "^1.30.0",
     "ts-pattern": "^5.0.6"
   },

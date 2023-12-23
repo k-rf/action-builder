@@ -15,10 +15,12 @@ export const __dirname = path.dirname(__filename);
  *
  * 出力先はカレントディレクトリには依存せず、親方向で最も近い `.git` と同階層の `.github` になる。
  */
-export const executeScaffdog = async ({
+export const createFiles = async ({
+  dotGitPath,
   name,
   description,
 }: {
+  dotGitPath: string;
   name: string;
   description: string;
 }) => {
@@ -27,8 +29,7 @@ export const executeScaffdog = async ({
 
   const files = await scaffdog.generate(
     document,
-    // TODO: このパスはカレントディレクトリに依存しているため修正する。
-    path.join(process.cwd(), ".github"),
+    path.join(dotGitPath, ".github"),
     {
       inputs: {
         name: name,
