@@ -21,7 +21,10 @@
     "build": "pnpm clean && pnpm build:cjs && pnpm build:esm",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:esm": "tsc -p tsconfig.esm.json",
-    "build:watch": "pnpm clean && run-p \"build:cjs -w\" \"build:esm -w\""
+    "build:watch": "pnpm clean && run-p \"build:cjs -w\" \"build:esm -w\"",
+    "typing": "tsc --project tsconfig.json --pretty --noEmit",
+    "lint": "eslint --fix --cache .",
+    "format": "prettier --write ."
   },
   "devDependencies": {
     "@action-builder/types": "workspace:*"

@@ -2,8 +2,6 @@
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
     "incremental": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
     "baseUrl": ".",
     "paths": {
       "@action-builder/cli": ["./packages/cli/src/index.ts"],
@@ -13,6 +11,7 @@
     "allowJs": false,
     "declaration": true,
     "declarationMap": true,
+    "sourceMap": true,
     "isolatedModules": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

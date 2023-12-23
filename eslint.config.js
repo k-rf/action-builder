@@ -13,7 +13,7 @@ const ignorePattern = {
 
 /** @type { import("eslint").Linter.FlatConfig } */
 const importResolver = {
-  files: ["**/*.{,m,c}{t,j}s"],
+  files: ["**/*.{,m,c}{t,j}s{,x}"],
   plugins: {
     import: pluginImport,
     "unused-imports": pluginUnusedImport,
@@ -83,11 +83,7 @@ const tsRules = {
     ...pluginCspell.configs["recommended"].rules,
     ...pluginPrettier.rules,
 
-    "object-shorthand": [
-      "error",
-      "always",
-      { ignoreConstructors: false, avoidQuotes: true },
-    ],
+    "object-shorthand": ["error", "never"],
 
     "@typescript-eslint/no-unused-vars": [
       "error",
@@ -101,7 +97,7 @@ const tsRules = {
 
 /** @type { import("eslint").Linter.FlatConfig } */
 const specRules = {
-  files: ["**/*.spec.{,c,m}{j,t}s"],
+  files: ["**/*.spec.{,c,m}{j,t}s{,x}"],
   plugins: {
     sonarjs: pluginSonarJs,
   },
