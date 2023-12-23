@@ -9,6 +9,7 @@
     "devcontainer",
     "esbuild",
     "initdb",
+    "inkjs",
     "instanceof",
     "linebreak",
     "nestjs",

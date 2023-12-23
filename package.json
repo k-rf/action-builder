@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "license": "MIT",
   "bin": {
-    "ab": "./packages/cli/dist/index.js"
+    "ab": "./packages/cli/dist/ab.js"
   },
+  "main": "./packages/core/dist/cjs/index.js",
+  "types": "./packages/core/dist/types/index.d.ts",
   "exports": {
     ".": {
       "types": "./packages/core/dist/types/index.d.ts",
@@ -19,10 +21,10 @@
     "build": "npm-run-all -s build:core build:cli",
     "build:core": "pnpm -C ./packages/core build",
     "build:cli": "pnpm -C ./packages/cli build",
-    "lint": "eslint --fix --cache .",
+    "lint": "pnpm -r lint",
     "format": "prettier --write .",
-    "check:type": "tsc --project tsconfig.json --pretty --noEmit",
-    "check:all": "npm-run-all -s check:type format lint",
+    "typing": "pnpm -r typing",
+    "check:all": "npm-run-all -s typing format lint",
     "test": "jest --runInBand",
     "test:cov": "jest --runInBand --coverage=true",
     "test:watch": "jest --runInBand --watch",
@@ -45,6 +47,8 @@
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
     "@vercel/ncc": "^0.38.1",
+    "concurrently": "^8.2.2",
+    "cpx": "^1.5.0",
     "eslint": "^8.55.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.1",

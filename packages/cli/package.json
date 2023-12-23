@@ -3,17 +3,32 @@
   "version": "0.1.0",
   "license": "MIT",
   "private": true,
+  "type": "module",
   "main": "src/index.ts",
   "publishConfig": {
     "main": "dist/index.js"
   },
   "scripts": {
     "clean": "rimraf dist",
-    "build": "pnpm clean && tsc -p tsconfig.json",
-    "build:watch": "pnpm clean && pnpm build -w"
+    "copy": "cpx \"src/.scaffdog/*\" dist/.scaffdog",
+    "copy:watch": "pnpm copy -w",
+    "tsc": "tsc -p tsconfig.json",
+    "tsc:watch": "pnpm tsc -w",
+    "build": "npm-run-all -s clean tsc copy",
+    "build:watch": "pnpm clean && concurrently \"pnpm tsc:watch\" \"pnpm copy:watch\"",
+    "typing": "tsc --project tsconfig.json --pretty --noEmit",
+    "lint": "eslint --fix --cache .",
+    "format": "prettier --write ."
   },
   "dependencies": {
-    "@action-builder/core": "workspace:*"
+    "@action-builder/core": "workspace:*",
+    "@inkjs/ui": "^1.0.0",
+    "@types/react": "^18.2.45",
+    "ink": "^4.4.1",
+    "pastel": "^2.0.2",
+    "react": "^18.2.0",
+    "simple-git": "^3.21.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@action-builder/types": "workspace:*"
