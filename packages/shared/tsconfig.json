@@ -5,7 +5,6 @@
     "moduleResolution": "Bundler",
     "rootDir": ".",
     "paths": {
-      "@action-builder/shared": ["../shared/src/index.ts"],
       "@action-builder/types": ["../types/src/index.ts"]
     }
   },

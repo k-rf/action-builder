@@ -18,7 +18,8 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "build": "npm-run-all -s build:core build:cli",
+    "build": "npm-run-all -s build:shared build:core build:cli",
+    "build:shared": "pnpm -C ./packages/shared build",
     "build:core": "pnpm -C ./packages/core build",
     "build:cli": "pnpm -C ./packages/cli build",
     "lint": "pnpm -r lint",
@@ -28,6 +29,7 @@
     "test": "jest --runInBand",
     "test:cov": "jest --runInBand --coverage=true",
     "test:watch": "jest --runInBand --watch",
+    "shared": "pnpm -C ./packages/shared",
     "core": "pnpm -C ./packages/core",
     "cli": "pnpm -C ./packages/cli"
   },
@@ -72,6 +74,7 @@
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
+    "tsup": "^8.0.1",
     "typescript": "^5.3.3"
   }
 }

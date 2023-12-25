@@ -1,5 +1,5 @@
 {
-  "name": "@action-builder/core",
+  "name": "@action-builder/shared",
   "version": "0.1.0",
   "license": "MIT",
   "private": true,
@@ -21,9 +21,6 @@
     "typing": "tsc --project tsconfig.json --pretty --noEmit",
     "lint": "eslint --fix --cache .",
     "format": "prettier --write ."
-  },
-  "dependencies": {
-    "@action-builder/shared": "workspace:*"
   },
   "devDependencies": {
     "@action-builder/types": "workspace:*"

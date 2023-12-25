@@ -11,5 +11,9 @@ export const actDefault =
     getInput: (key: string) => T;
   }): ActDefault<T>["default"] =>
   (defaultValue) => ({
-    parse: actParse({ description, defaultValue, getInput }),
+    parse: actParse({
+      description: description,
+      defaultValue: defaultValue,
+      getInput: getInput,
+    }),
   });

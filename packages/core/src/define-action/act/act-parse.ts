@@ -13,9 +13,9 @@ export const actParse =
     getInput: (key: string) => T;
   }): ActParse<T>["parse"] =>
   (key) => ({
-    description,
+    description: description,
     name: key,
-    ...(required !== undefined && { required }),
+    ...(required !== undefined && { required: required }),
     ...(defaultValue !== undefined && { default: defaultValue }),
     getInput: () => getInput(key),
   });

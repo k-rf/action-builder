@@ -32,7 +32,7 @@ const createActionYaml = async (
     template({
       name: actionMeta.name,
       description: actionMeta.description,
-      ...(inputs && { inputs }),
+      ...(inputs && { inputs: inputs }),
     }),
     { encoding: "utf-8" }
   );

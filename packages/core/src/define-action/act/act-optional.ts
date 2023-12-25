@@ -10,4 +10,4 @@ export const actOptional =
     description: string;
     getInput: (key: string) => T | undefined;
   }): ActOptional<T>["optional"] =>
-  () => ({ parse: actParse({ description, getInput }) });
+  () => ({ parse: actParse({ description: description, getInput: getInput }) });
