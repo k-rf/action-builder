@@ -4,10 +4,6 @@
   "license": "MIT",
   "private": true,
   "type": "module",
-  "main": "src/index.ts",
-  "publishConfig": {
-    "main": "dist/index.js"
-  },
   "scripts": {
     "clean": "rimraf dist",
     "copy": "cpx \"src/.scaffdog/*\" dist/.scaffdog",
@@ -22,13 +18,16 @@
   },
   "dependencies": {
     "@action-builder/core": "workspace:*",
+    "@action-builder/shared": "workspace:*",
     "@inkjs/ui": "^1.0.0",
     "@types/react": "^18.2.45",
+    "@vercel/ncc": "^0.38.1",
     "ink": "^4.4.1",
     "pastel": "^2.0.2",
     "react": "^18.2.0",
     "simple-git": "^3.21.0",
-    "zod": "^3.22.4"
+    "zod": "^3.22.4",
+    "zx": "^7.2.3"
   },
   "devDependencies": {
     "@action-builder/types": "workspace:*"

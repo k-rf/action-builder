@@ -4,6 +4,7 @@
   "ignorePaths": [".devcontainer", "node_modules", "*.lock"],
   "words": [
     "clazz",
+    "cli",
     "commandhistory",
     "createdb",
     "devcontainer",

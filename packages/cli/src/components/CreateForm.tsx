@@ -1,5 +1,5 @@
 import { Box, Spacer, Text, useApp, useFocusManager } from "ink";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { createFiles } from "../app/create-files.js";
 import { Confirm } from "../components/Confirm.js";

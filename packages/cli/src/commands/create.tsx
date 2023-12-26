@@ -1,6 +1,6 @@
 import { Spinner } from "@inkjs/ui";
 import { Text, useApp, useFocusManager } from "ink";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { CreateForm } from "../components/CreateForm.js";
 import { useCursorMove } from "../hooks/use-cursor-move.js";
