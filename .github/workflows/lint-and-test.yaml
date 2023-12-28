@@ -16,6 +16,10 @@ jobs:
         id: install
         run: pnpm install
 
+      - name: "Build"
+        id: build
+        run: pnpm build
+
       - name: "Check Type"
         id: check_type
         run: pnpm typing
