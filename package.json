@@ -18,7 +18,8 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "build": "npm-run-all -s build:shared build:core build:cli",
+    "build": "npm-run-all -s build:types build:shared build:core build:cli",
+    "build:types": "pnpm -C ./packages/types build",
     "build:shared": "pnpm -C ./packages/shared build",
     "build:core": "pnpm -C ./packages/core build",
     "build:cli": "pnpm -C ./packages/cli build",
