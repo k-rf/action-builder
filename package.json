@@ -5,15 +5,18 @@
   "bin": {
     "ab": "./packages/cli/dist/ab.js"
   },
-  "main": "./packages/core/dist/cjs/index.js",
-  "types": "./packages/core/dist/types/index.d.ts",
+  "main": "./packages/core/dist/index.js",
+  "types": "./packages/core/dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./packages/core/dist/types/index.d.ts",
-      "import": "./packages/core/dist/esm/index.js",
-      "require": "./packages/core/dist/cjs/index.js",
-      "node": "./packages/core/dist/esm/index.js",
-      "default": "./packages/core/dist/cjs/index.js"
+      "import": {
+        "default": "./packages/core/dist/index.mjs",
+        "types": "./packages/core/dist/index.d.mts"
+      },
+      "require": {
+        "default": "./packages/core/dist/index.js",
+        "types": "./packages/core/dist/index.d.ts"
+      }
     }
   },
   "scripts": {

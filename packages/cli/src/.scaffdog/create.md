@@ -15,7 +15,7 @@ export const action = defineAction
     name: "{{ inputs.name | kebab }}",
     description: "{{ inputs.description }}",
   })
-  .inputs((a) => ({
+  .inputMeta((a) => ({
     // ここに入力の属性を定義してください。
     sample: a.string("サンプル"),
   }));
