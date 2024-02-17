@@ -1,6 +1,5 @@
 import { ConfirmInput } from "@inkjs/ui";
 import { Box, Spacer, useFocus } from "ink";
-import React from "react";
 import { noop } from "remeda";
 
 type ConfirmProps = {

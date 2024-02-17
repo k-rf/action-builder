@@ -5,20 +5,25 @@
   "bin": {
     "ab": "./packages/cli/dist/ab.js"
   },
-  "main": "./packages/core/dist/cjs/index.js",
-  "types": "./packages/core/dist/types/index.d.ts",
+  "main": "./packages/core/dist/index.js",
+  "types": "./packages/core/dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./packages/core/dist/types/index.d.ts",
-      "import": "./packages/core/dist/esm/index.js",
-      "require": "./packages/core/dist/cjs/index.js",
-      "node": "./packages/core/dist/esm/index.js",
-      "default": "./packages/core/dist/cjs/index.js"
+      "import": {
+        "default": "./packages/core/dist/index.mjs",
+        "types": "./packages/core/dist/index.d.mts"
+      },
+      "require": {
+        "default": "./packages/core/dist/index.js",
+        "types": "./packages/core/dist/index.d.ts"
+      }
     }
   },
   "scripts": {
     "prepare": "husky install",
-    "build": "npm-run-all -s build:core build:cli",
+    "build": "npm-run-all -s build:types build:shared build:core build:cli",
+    "build:types": "pnpm -C ./packages/types build",
+    "build:shared": "pnpm -C ./packages/shared build",
     "build:core": "pnpm -C ./packages/core build",
     "build:cli": "pnpm -C ./packages/cli build",
     "lint": "pnpm -r lint",
@@ -28,6 +33,7 @@
     "test": "jest --runInBand",
     "test:cov": "jest --runInBand --coverage=true",
     "test:watch": "jest --runInBand --watch",
+    "shared": "pnpm -C ./packages/shared",
     "core": "pnpm -C ./packages/core",
     "cli": "pnpm -C ./packages/cli"
   },
@@ -72,6 +78,7 @@
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
+    "tsup": "^8.0.1",
     "typescript": "^5.3.3"
   }
 }

@@ -1,6 +1,5 @@
 import { TextInput } from "@inkjs/ui";
 import { Box, Text, useFocus } from "ink";
-import React from "react";
 
 type FieldProps = {
   id: string;

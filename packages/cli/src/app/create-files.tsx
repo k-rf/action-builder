@@ -1,11 +1,7 @@
-import fs from "fs/promises";
 import path from "path";
-import { fileURLToPath } from "url";
 
-import { loadScaffdog, Document, Scaffdog } from "scaffdog";
-
-const __filename = fileURLToPath(import.meta.url);
-export const __dirname = path.dirname(__filename);
+import { scaffold } from "../io/scaffold.js";
+import { writeScaffdogFiles } from "../io/write-scaffdog-files.js";
 
 /**
  * Scaffdog を実行し、ひな形を出力する。
@@ -24,44 +20,11 @@ export const createFiles = async ({
   name: string;
   description: string;
 }) => {
-  const scaffdog = await loadScaffdog(path.join(__dirname, "../.scaffdog"));
-  const [document] = await getDocument(scaffdog);
+  const files = await scaffold(path.join(dotGitPath, ".github"), {
+    type: "create",
+    name: name,
+    description: description,
+  });
 
-  const files = await scaffdog.generate(
-    document,
-    path.join(dotGitPath, ".github"),
-    {
-      inputs: {
-        name: name,
-        description: description,
-      },
-    }
-  );
-
-  for (const file of files) {
-    if (file.skip) continue;
-
-    await fs.mkdir(path.dirname(file.path), { recursive: true });
-    await fs.writeFile(file.path, file.content);
-  }
-};
-
-/**
- * Scaffdog からドキュメントを取得する。
- *
- * NOTE
- * ----
- *
- * Scaffdog を実行するため、ドキュメントが 1 つ以上存在する必要がある。
- */
-const getDocument = async (
-  scaffdog: Scaffdog
-): Promise<[Document, ...Document[]]> => {
-  const documents = await scaffdog.list();
-
-  if (documents.length === 0) {
-    throw new Error("No documents found.");
-  }
-
-  return documents as [Document, ...Document[]];
+  return writeScaffdogFiles(files.filter((file) => !file.skip));
 };

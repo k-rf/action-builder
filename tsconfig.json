@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
-    "incremental": true,
     "baseUrl": ".",
     "paths": {
       "@action-builder/cli": ["./packages/cli/src/index.ts"],
       "@action-builder/core": ["./packages/core/src/index.ts"],
+      "@action-builder/shared": ["./packages/shared/src/index.ts"],
       "@action-builder/types": ["./packages/types/src/index.ts"]
     },
     "allowJs": false,
@@ -26,7 +26,7 @@
     "skipLibCheck": true
   },
   "include": ["./*.ts", "./packages/**/*.ts"],
-  "exclude": ["**/*.spec.ts", "**/dist/**", "**/node_modules"],
+  "exclude": ["**/*.spec.ts", "**/dist", "**/node_modules"],
   "ts-node": {
     "esm": true,
     "experimentalSpecifierResolution": "node"

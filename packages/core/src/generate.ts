@@ -6,7 +6,7 @@ import { TemplateProps, template } from "./templates";
 /**
  * メタデータの情報をもとに、action.yaml を生成する
  */
-export const generate = async (action: ParsedActionMeta) => {
+export const generate = async (action: ParsedActionMeta, baseDir = ".") => {
   await createActionYaml(
     action.meta.action,
     action.meta.inputs.map((e) => {
@@ -16,7 +16,8 @@ export const generate = async (action: ParsedActionMeta) => {
         ...(e.default !== undefined && { default: String(e.default) }),
         required: Boolean(e.required) && !Boolean(e.default),
       };
-    })
+    }),
+    { baseDir: baseDir }
   );
 };
 
@@ -25,14 +26,15 @@ export const generate = async (action: ParsedActionMeta) => {
  */
 const createActionYaml = async (
   actionMeta: ActionMeta,
-  inputs: TemplateProps["inputs"]
+  inputs: TemplateProps["inputs"],
+  { baseDir }: { baseDir: string }
 ) => {
   await fs.writeFile(
-    "./action.yaml",
+    `${baseDir}/action.yaml`,
     template({
       name: actionMeta.name,
       description: actionMeta.description,
-      ...(inputs && { inputs }),
+      ...(inputs && { inputs: inputs }),
     }),
     { encoding: "utf-8" }
   );

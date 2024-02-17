@@ -1,11 +1,12 @@
 ---
-name: "action-builder"
+name: "create"
 root: "."
 output: "."
 ---
 
 # `actions/{{ inputs.name | kebab }}/action.meta.ts`
 
+<!-- prettier-ignore -->
 ```ts
 import { defineAction } from "@k-rf/action-builder";
 
@@ -14,14 +15,16 @@ export const action = defineAction
     name: "{{ inputs.name | kebab }}",
     description: "{{ inputs.description }}",
   })
-  .inputs((a) => ({
+  .inputMeta((a) => ({
     // ここに入力の属性を定義してください。
     sample: a.string("サンプル"),
   }));
+
 ```
 
 # `actions/{{ inputs.name | kebab }}/action.ts`
 
+<!-- prettier-ignore -->
 ```ts
 import * as core from "@actions/core";
 
@@ -34,4 +37,5 @@ const run = (): void => {
 };
 
 run();
+
 ```
