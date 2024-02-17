@@ -6,11 +6,16 @@ import { build } from "../app/build.js";
 
 export default function Build() {
   const [isBuilding, setIsBuilding] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    build().then(() => {
-      setIsBuilding(false);
-    });
+    build()
+      .catch((e) => {
+        setErrorMessage(e.errorMessage);
+      })
+      .finally(() => {
+        setIsBuilding(false);
+      });
   }, []);
 
   return isBuilding ? (
@@ -18,6 +23,8 @@ export default function Build() {
       <Text>Building... </Text>
       <Spinner type="arrow3" />
     </Box>
+  ) : errorMessage ? (
+    <Text color="yellow">{errorMessage}</Text>
   ) : (
     <Text>Completed!</Text>
   );

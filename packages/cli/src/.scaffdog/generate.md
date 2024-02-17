@@ -10,7 +10,7 @@ output: "."
 ```ts
 import { generate } from "@k-rf/action-builder";
 
-import { action } from "./action.meta";
+import { action } from "{{ inputs.baseDir }}/action.meta";
 
 generate(action, "{{ inputs.baseDir }}");
 
