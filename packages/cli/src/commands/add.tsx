@@ -6,7 +6,7 @@ import { CreateForm } from "../components/CreateForm.js";
 import { useCursorMove } from "../hooks/use-cursor-move.js";
 import { getDotGitPath } from "../io/get-dot-git-path.js";
 
-export default function Create() {
+export default function Add() {
   const [dotGitPath, setDotGitPath] = useState<string | undefined>(undefined);
 
   const [errorMessage, setErrorMessage] = useState<string | undefined>(
