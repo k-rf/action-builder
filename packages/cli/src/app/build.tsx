@@ -29,7 +29,7 @@ export const build = async () => {
     };
   }
 
-  await Promise.all(
+  const errorStatuses = await Promise.all(
     actionDirs.map(async (actionDir) => {
       const actionDirPath = path.join(dotGitHubPath, "actions", actionDir);
 
@@ -43,7 +43,24 @@ export const build = async () => {
       await $`npx ts-node <<< ${files.map((file) => file.content)}`.quiet();
 
       $.cwd = ".";
-      await $`npx ncc build ${actionDirPath}/action.ts -o ${actionDirPath}/dist`.quiet();
+      const res =
+        await $`npx ncc build ${actionDirPath}/action.ts -o ${actionDirPath}/dist`
+          .quiet()
+          .catch((e) => e);
+
+      return { exitCode: res.exitCode, actionName: actionDir };
     })
   );
+
+  if (errorStatuses.some(({ exitCode }) => exitCode !== 0)) {
+    throw {
+      exitCode: 3 as const,
+      errorMessage: [
+        "Failed to build following actions.",
+        errorStatuses
+          .map((errorStatus) => `"${errorStatus.actionName}"`)
+          .join(" "),
+      ].join("\n"),
+    };
+  }
 };
