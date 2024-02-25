@@ -10,18 +10,14 @@
   "main": "./src/index.ts",
   "exports": {
     ".": {
-      "import": {
-        "default": "./dist/index.mjs",
-        "types": "./dist/index.d.mts"
-      },
-      "require": {
-        "default": "./dist/index.js",
-        "types": "./dist/index.d.ts"
-      }
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     }
   },
   "publishConfig": {
-    "main": "./dist/index.js"
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts"
   },
   "scripts": {
     "clean": "rimraf dist",
@@ -32,9 +28,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@k-rf/action-builder-shared": "workspace:*"
-  },
-  "devDependencies": {
+    "@k-rf/action-builder-shared": "workspace:*",
     "@k-rf/action-builder-types": "workspace:*"
   }
 }

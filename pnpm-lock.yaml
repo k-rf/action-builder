@@ -14,6 +14,9 @@ importers:
       '@k-rf/action-builder-cli':
         specifier: workspace:*
         version: link:packages/cli
+      '@k-rf/action-builder-types':
+        specifier: workspace:*
+        version: link:packages/types
       fp-ts:
         specifier: ^2.16.1
         version: 2.16.1
@@ -172,13 +175,12 @@ importers:
       '@k-rf/action-builder-shared':
         specifier: workspace:*
         version: link:../shared
-    devDependencies:
       '@k-rf/action-builder-types':
         specifier: workspace:*
         version: link:../types
 
   packages/shared:
-    devDependencies:
+    dependencies:
       '@k-rf/action-builder-types':
         specifier: workspace:*
         version: link:../types

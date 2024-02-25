@@ -2,6 +2,11 @@
   "name": "@k-rf/action-builder-cli",
   "version": "1.0.0",
   "license": "MIT",
+  "repository": {
+    "url": "https://github.com/k-rf/action-builder",
+    "type": "git",
+    "directory": "packages/cli"
+  },
   "type": "module",
   "scripts": {
     "clean": "rimraf dist",
