@@ -23,19 +23,6 @@
   "dependencies": {
     "@k-rf/action-builder-core": "workspace:*",
     "@k-rf/action-builder-shared": "workspace:*",
-    "@inkjs/ui": "^1.0.0",
-    "@types/react": "^18.2.45",
-    "@vercel/ncc": "^0.38.1",
-    "ink": "^4.4.1",
-    "mlly": "^1.5.0",
-    "pastel": "^2.0.2",
-    "react": "^18.2.0",
-    "scaffdog": "^3.0.0",
-    "simple-git": "^3.21.0",
-    "zod": "^3.22.4",
-    "zx": "^7.2.3"
-  },
-  "devDependencies": {
     "@k-rf/action-builder-types": "workspace:*"
   }
 }
