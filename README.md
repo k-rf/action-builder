@@ -11,6 +11,15 @@ pnpm add @k-rf/action-builder @actions/core
 pnpm add -D ts-node @vercel/ncc
 ```
 
+### .npmrc の設定
+
+.npmrc を作成し、以下の内容を記述する。
+
+```ini
+@k-rf:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+```
+
 ### アクションの作成
 
 次のコマンドを実行し、表示される画面にしたがって情報を入力する。
