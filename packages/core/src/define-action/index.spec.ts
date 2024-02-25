@@ -1,5 +1,5 @@
-import { objectEntries } from "@action-builder/shared";
 import * as core from "@actions/core";
+import { objectEntries } from "@k-rf/action-builder-shared";
 
 import { defineAction } from ".";
 

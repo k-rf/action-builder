@@ -1,4 +1,4 @@
-import { throwError } from "@action-builder/shared";
+import { throwError } from "@k-rf/action-builder-shared";
 import { Document, Scaffdog } from "scaffdog";
 
 /**

@@ -1,4 +1,4 @@
-import { Prettify } from "@action-builder/types";
+import { Prettify } from "@k-rf/action-builder-types";
 
 import { ActFnReturnObj, Act } from "./act";
 import { ActionMeta, InputMeta, InputType } from "./action";

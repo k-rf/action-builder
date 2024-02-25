@@ -1,8 +1,12 @@
 {
-  "name": "@action-builder/types",
-  "version": "0.1.0",
+  "name": "@k-rf/action-builder-types",
+  "version": "1.0.0",
   "license": "MIT",
-  "private": true,
+  "repository": {
+    "url": "https://github.com/k-rf/action-builder",
+    "type": "git",
+    "directory": "packages/types"
+  },
   "main": "./src/index.ts",
   "types": "dist/types/index.d.ts",
   "publishConfig": {

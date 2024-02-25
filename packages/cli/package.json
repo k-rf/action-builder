@@ -1,8 +1,7 @@
 {
-  "name": "@action-builder/cli",
-  "version": "0.1.0",
+  "name": "@k-rf/action-builder-cli",
+  "version": "1.0.0",
   "license": "MIT",
-  "private": true,
   "type": "module",
   "scripts": {
     "clean": "rimraf dist",
@@ -17,8 +16,8 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@action-builder/core": "workspace:*",
-    "@action-builder/shared": "workspace:*",
+    "@k-rf/action-builder-core": "workspace:*",
+    "@k-rf/action-builder-shared": "workspace:*",
     "@inkjs/ui": "^1.0.0",
     "@types/react": "^18.2.45",
     "@vercel/ncc": "^0.38.1",
@@ -26,11 +25,12 @@
     "mlly": "^1.5.0",
     "pastel": "^2.0.2",
     "react": "^18.2.0",
+    "scaffdog": "^3.0.0",
     "simple-git": "^3.21.0",
     "zod": "^3.22.4",
     "zx": "^7.2.3"
   },
   "devDependencies": {
-    "@action-builder/types": "workspace:*"
+    "@k-rf/action-builder-types": "workspace:*"
   }
 }

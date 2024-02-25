@@ -3,10 +3,10 @@
     /* Visit https://aka.ms/tsconfig to read more about this file */
     "baseUrl": ".",
     "paths": {
-      "@action-builder/cli": ["./packages/cli/src/index.ts"],
-      "@action-builder/core": ["./packages/core/src/index.ts"],
-      "@action-builder/shared": ["./packages/shared/src/index.ts"],
-      "@action-builder/types": ["./packages/types/src/index.ts"]
+      "@k-rf/action-builder-cli": ["./packages/cli/src/index.ts"],
+      "@k-rf/action-builder-core": ["./packages/core/src/index.ts"],
+      "@k-rf/action-builder-shared": ["./packages/shared/src/index.ts"],
+      "@k-rf/action-builder-types": ["./packages/types/src/index.ts"]
     },
     "allowJs": false,
     "declaration": true,

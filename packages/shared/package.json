@@ -1,8 +1,12 @@
 {
-  "name": "@action-builder/shared",
-  "version": "0.1.0",
+  "name": "@k-rf/action-builder-shared",
+  "version": "1.0.0",
   "license": "MIT",
-  "private": true,
+  "repository": {
+    "url": "https://github.com/k-rf/action-builder",
+    "type": "git",
+    "directory": "packages/shared"
+  },
   "main": "./src/index.ts",
   "exports": {
     ".": {
@@ -28,6 +32,6 @@
     "format": "prettier --write ."
   },
   "devDependencies": {
-    "@action-builder/types": "workspace:*"
+    "@k-rf/action-builder-types": "workspace:*"
   }
 }

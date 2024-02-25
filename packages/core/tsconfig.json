@@ -5,8 +5,8 @@
     "moduleResolution": "Bundler",
     "rootDir": ".",
     "paths": {
-      "@action-builder/shared": ["../shared/src/index.ts"],
-      "@action-builder/types": ["../types/src/index.ts"]
+      "@k-rf/action-builder-shared": ["../shared/src/index.ts"],
+      "@k-rf/action-builder-types": ["../types/src/index.ts"]
     }
   },
   "include": ["src"]

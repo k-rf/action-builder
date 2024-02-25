@@ -8,9 +8,9 @@
     "module": "Node16",
     "moduleResolution": "Node16",
     "paths": {
-      "@action-builder/core": ["../core/src"],
-      "@action-builder/shared": ["../shared/src"],
-      "@action-builder/types": ["../types/src"]
+      "@k-rf/action-builder-core": ["../core/src"],
+      "@k-rf/action-builder-shared": ["../shared/src"],
+      "@k-rf/action-builder-types": ["../types/src"]
     },
     "jsx": "react-jsx",
     "exactOptionalPropertyTypes": false

@@ -1,0 +1,27 @@
+# source
+**/*.ts
+*.ts
+**/*.tsx
+*.tsx
+
+# definitions
+!**/*.d.ts
+!*.d.ts
+
+# configuration
+.pnpm-store/*
+pnpm-lock.yaml
+tsconfig.json
+*.config.*
+
+*.tsbuildinfo
+
+.devcontainer/*
+.github/*
+.husky/*
+.vscode/*
+.eslintcache
+.markdownlintignore
+.prettierignore
+.textlintrc
+coverage/*
